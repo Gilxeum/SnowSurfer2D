@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,18 +9,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostSpeed = 35f;
     [SerializeField] private ParticleSystem snowEffect;
     [SerializeField] private ParticleSystem boostEffect;
-
-    
-
-    float baseSpeed = 10f;
+    [SerializeField] private ScoreManager scoreManager;
 
     SurfaceEffector2D surfaceEffector2D;
+    Rigidbody2D rb;
 
 
-
+   
     InputAction moveAction;
     Vector2 moveInput;
-    Rigidbody2D rb;
+
+    
+    float baseSpeed = 10f;
+    float previousRotation;
+    float totalRotation;
+    int flipCount;
+
 
     private bool canControlPlayer = true;
     public bool CanControlPlayer { get => canControlPlayer; set => canControlPlayer = value; }
@@ -39,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerTorque();
             BoostPlayer();
+            CalculateFlips();
             Debug.Log("Player can control the player");
         }
         else
@@ -47,9 +53,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-/// <summary>
-/// Applies torque to the player based on the horizontal input from the move action.
-/// </summary>
+    /// <summary>
+    /// Calculates the number of flips the player has performed based on the player's rotation.
+    /// </summary>
+    private void CalculateFlips()
+    {
+        float currentRotation = transform.rotation.eulerAngles.z; // Get the current rotation of the player in degrees
+        totalRotation += Mathf.DeltaAngle(previousRotation, currentRotation); // Calculate the change in rotation since the last frame
+
+        if(Mathf.Abs(totalRotation) > 340) // If the total rotation exceeds or equals 360 degrees, the player has completed a flip
+        {
+            flipCount++; // Increment the flip count
+            Debug.Log($"Player has completed {flipCount} flips!"); 
+            scoreManager.AddScore(flipCount*100); // Update the score based on the number of flips
+            totalRotation = 0; // Reset the total rotation for the next flip
+        }
+       
+       previousRotation = currentRotation; // Update the previous rotation for the next frame
+    }
+
+    /// <summary>
+    /// Applies torque to the player based on the horizontal input from the move action.
+    /// </summary>
     void PlayerTorque()
     {
         moveInput = moveAction.ReadValue<Vector2>();
