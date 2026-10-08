@@ -3824,7 +3824,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishLine
   reloadDelay: 2
-  finishEffect: {fileID: 2087969508}
+  finishEffects:
+  - {fileID: 2087969508}
+  - {fileID: 1133207669}
 --- !u!61 &880759123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3975,7 +3977,7 @@ GameObject:
   - component: {fileID: 1133207669}
   - component: {fileID: 1133207668}
   m_Layer: 0
-  m_Name: FinishLineParticle (1)
+  m_Name: FinishLineParticle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12699,7 +12701,7 @@ GameObject:
   - component: {fileID: 2087969508}
   - component: {fileID: 2087969507}
   m_Layer: 0
-  m_Name: FinishLineParticle
+  m_Name: FinishLineParticle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
