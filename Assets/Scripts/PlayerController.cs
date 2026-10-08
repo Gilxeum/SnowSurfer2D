@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     Vector2 moveInput;
 
+    int activePowerUpsCount; // Track the number of active powers ups
+    
     
     float baseSpeed = 10f;
     float previousRotation;
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Activate the selected character based on the index stored in PlayerPrefs, if doesnt have a value select the first value
+        transform.GetChild(0).GetChild(PlayerPrefs.GetInt("SelectedCharacter",0)).gameObject.SetActive(true);
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
@@ -131,4 +135,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ApplyPowerUp(PowerUpScritableObject powerUpData)
+    {
+        activePowerUpsCount++;
+        if(powerUpData.PowerUpType == "Speed")
+        {
+            baseSpeed += powerUpData.PowerUpValue;
+            boostSpeed += powerUpData.PowerUpValue;
+        }
+
+    }
+
+    public void DeactivatePowerUp(PowerUpScritableObject powerUpData)
+    {
+
+        activePowerUpsCount--;
+        if(activePowerUpsCount == 0)
+        {
+            if(powerUpData.PowerUpType == "Speed")
+            {
+                baseSpeed -= powerUpData.PowerUpValue;
+                boostSpeed += powerUpData.PowerUpValue;
+            }
+        }
+    }
 }
