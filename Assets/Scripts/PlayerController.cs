@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //Activate the selected character based on the index stored in PlayerPrefs, if doesnt have a value select the first value
-        transform.GetChild(0).GetChild(PlayerPrefs.GetInt("SelectedCharacter",0)).gameObject.SetActive(true);
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
