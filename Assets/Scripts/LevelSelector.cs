@@ -10,12 +10,13 @@ public class LevelSelector : MonoBehaviour
 
         //Getayout group 
         Transform levels = transform.GetChild(0);
-
-        for(int i = 0; i < levels.childCount; i++)
+        Debug.Log("Unlocked level: " + unlockedLevel);
+        for (int i = 0; i < levels.childCount; i++)
         {
-            Button levelButton = levels.GetChild(i).GetComponent<Button>();
-            levelButton.interactable = i < unlockedLevel;
-        }
+            Transform level = levels.GetChild(i);
+            Button button = level.GetComponent<Button>();
+            button.interactable =  unlockedLevel >= i + 1;
+        }   
         //Prueba
     }
 }

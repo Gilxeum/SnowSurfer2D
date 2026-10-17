@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         // Load the main game scene
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("SelectLevel");
     }
 
     public void CharacterSelection()
@@ -42,5 +42,12 @@ public class MenuManager : MonoBehaviour
         ReturnMenu();
 
     }
+
+    public void LoadLevel(int levelIndex)
+    {
+        SceneManager.LoadScene("Level" + levelIndex);
+    }
+   
+
 }
     
