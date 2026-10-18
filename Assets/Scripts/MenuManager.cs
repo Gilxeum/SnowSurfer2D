@@ -9,11 +9,6 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("VehicleConfiguration");
     }
 
-    public void LevelSelection()
-    {
-        SceneManager.LoadScene("SelectLevel");
-    }
-
     public void CharacterSelection()
     {
         // Load the character selection scene

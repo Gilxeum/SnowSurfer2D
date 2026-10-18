@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VehicleConfigurationManager : MonoBehaviour
@@ -87,6 +88,8 @@ public class VehicleConfigurationManager : MonoBehaviour
         PlayerPrefs.SetFloat("ShootVelocity", shootVelocity.size);
         PlayerPrefs.SetFloat("Torque", torque.size);
         PlayerPrefs.SetFloat("BoostSpeed", boostSpeed.size);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("SelectLevel");
     }
 
 }

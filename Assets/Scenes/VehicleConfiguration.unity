@@ -553,7 +553,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: addShootVelocity
+        m_MethodName: AddShootVelocity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -834,21 +834,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1729575786}
-        m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: restSpeed
+        m_MethodName: RestSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1323,7 +1311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: restBoostSpeed
+        m_MethodName: RestBoostSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2955,7 +2943,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: addSpeed
+        m_MethodName: AddSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3088,7 +3076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: addTorque
+        m_MethodName: AddTorque
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3485,7 +3473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: restShootVelocity
+        m_MethodName: RestShootVelocity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4302,9 +4290,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1729575792}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: LevelSelection
+      - m_Target: {fileID: 1729575791}
+        m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
+        m_MethodName: SaveSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4665,7 +4653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: addBoostSpeed
+        m_MethodName: AddBoostSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4935,7 +4923,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1729575791}
         m_TargetAssemblyTypeName: VehicleConfigurationManager, Assembly-CSharp
-        m_MethodName: restTorque
+        m_MethodName: RestTorque
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
