@@ -6,6 +6,11 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         // Load the main game scene
+        SceneManager.LoadScene("VehicleConfiguration");
+    }
+
+    public void LevelSelection()
+    {
         SceneManager.LoadScene("SelectLevel");
     }
 
