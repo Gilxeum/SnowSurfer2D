@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     {
         // La bala se mueve hacia su "derecha" local
         GetComponent<Rigidbody2D>().linearVelocity = transform.right * speed;
-        Destroy(gameObject, lifetime); // Autodestrucción en el tiempo que hemos puesto 
+        Destroy(gameObject, lifetime); 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("Bullet hit enemy!");
             ScoreManager.Instance.AddScore(100); // Añadir puntos al impacto
-            Destroy(other.gameObject); // o llama a un método de vida del enemigo
+            Destroy(other.gameObject); 
             Destroy(gameObject);
         }
     }
