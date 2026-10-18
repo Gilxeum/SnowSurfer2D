@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float torqueAmount;
-    [SerializeField] private float boostSpeed = 35f;
+    private float torqueAmount;
+    private float boostSpeed;
     [SerializeField] private ParticleSystem snowEffect;
     [SerializeField] private ParticleSystem boostEffect;
 
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     int activePowerUpsCount; // Track the number of active powers ups
     
     
-    float baseSpeed = 10f;
+    float baseSpeed;
     float previousRotation;
     float totalRotation;
     int flipCount;
@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
+        baseSpeed = 10f + (PlayerPrefs.GetFloat("Speed", 0f) * 10);
+        boostSpeed = 20f + (PlayerPrefs.GetFloat("BoostSpeed", 0f)*15); // Set the boost speed to 20
+        torqueAmount = 3f + (PlayerPrefs.GetFloat("Torque", 0f) * 3);
     }
 
     // Update is called once per frame
