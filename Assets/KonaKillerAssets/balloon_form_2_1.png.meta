@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37f2cc8fd7232374885a92ae0a2ce437
+guid: 046bf9c5273532448b267cfba5de56a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6398794991121327977
-    second: Idle4_0
+      213: 5765412188865773079
+    second: balloon_form_2_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle4_0
+      name: balloon_form_2_1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 233
-        height: 371
+        width: 149
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7981aab9bd9e237a0800000000000000
-      internalID: -6398794991121327977
+      spriteID: 71e3d0dd6dbd20050800000000000000
+      internalID: 5765412188865773079
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle4_0: -6398794991121327977
+      balloon_form_2_1_0: 5765412188865773079
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

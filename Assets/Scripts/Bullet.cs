@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Bullet hit enemy!");
-            ScoreManager.Instance.AddScore(127); // Añadir puntos al impacto
+            ScoreManager.Instance.AddScore(100); // Añadir puntos al impacto
             Destroy(other.gameObject); // o llama a un método de vida del enemigo
             Destroy(gameObject);
         }

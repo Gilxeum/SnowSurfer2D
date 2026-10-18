@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,16 @@ public class VehicleConfigurationManager : MonoBehaviour
     [SerializeField] private Scrollbar shootVelocity;
     [SerializeField] private Scrollbar torque;
     [SerializeField] private Scrollbar boostSpeed;
+    [SerializeField] private int totalPoints;
+
+    private void Awake()
+    {
+        totalPoints = PlayerPrefs.GetInt("Score", 0);
+        speedScrollbar.size = PlayerPrefs.GetFloat("Speed", 0f);
+        shootVelocity.size = PlayerPrefs.GetFloat("ShootVelocity", 0f);
+        torque.size = PlayerPrefs.GetFloat("Torque", 0f);
+        boostSpeed.size = PlayerPrefs.GetFloat("BoostSpeed", 0f);
+    }
 
 
     public void Start()
@@ -18,12 +29,26 @@ public class VehicleConfigurationManager : MonoBehaviour
         boostSpeed.size = PlayerPrefs.GetFloat("BoostSpeed", 0f);
     }
 
+    private bool CheckPoints()
+    { 
+        return totalPoints >= 1000;
+    }
+
+    private void RestPoints()
+    {
+        totalPoints -= 1000;
+        PlayerPrefs.SetInt("Score", totalPoints);
+        PlayerPrefs.Save();
+        ScoreManager.Instance.ResetScore();
+    }
+
 
     public void AddSpeed()
     {
-        if(speedScrollbar.size < 1f)
+        if(speedScrollbar.size < 1f && CheckPoints())
         {
             speedScrollbar.size += 0.1f;
+            RestPoints();
         }
     }
     public void RestSpeed()
@@ -36,9 +61,10 @@ public class VehicleConfigurationManager : MonoBehaviour
 
     public void AddShootVelocity()
     {
-        if(shootVelocity.size < 1f)
+        if(shootVelocity.size < 1f && CheckPoints())
         {
             shootVelocity.size += 0.1f;
+            RestPoints();
         }
     }
 
@@ -52,9 +78,10 @@ public class VehicleConfigurationManager : MonoBehaviour
 
     public void AddTorque()
     {
-        if(torque.size < 1f)
+        if(torque.size < 1f && CheckPoints())
         {
             torque.size += 0.1f;
+            RestPoints();
         }
     }
 
@@ -68,9 +95,10 @@ public class VehicleConfigurationManager : MonoBehaviour
 
     public void AddBoostSpeed()
     {
-        if(boostSpeed.size < 1f)
+        if(boostSpeed.size < 1f && CheckPoints())
         {
             boostSpeed.size += 0.1f;
+            RestPoints();
         }   
     }
 
