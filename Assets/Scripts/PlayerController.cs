@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float boostSpeed = 35f;
     [SerializeField] private ParticleSystem snowEffect;
     [SerializeField] private ParticleSystem boostEffect;
-    [SerializeField] private ScoreManager scoreManager;
 
     SurfaceEffector2D surfaceEffector2D;
     Rigidbody2D rb;
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             flipCount++; // Increment the flip count
             Debug.Log($"Player has completed {flipCount} flips!"); 
-            scoreManager.AddScore(flipCount*100); // Update the score based on the number of flips
+            ScoreManager.Instance.AddScore(100); // Update the score based on the number of flips
             totalRotation = 0; // Reset the total rotation for the next flip
         }
        
